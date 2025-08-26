@@ -3,8 +3,6 @@ name: Deploy StreamFlix to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 jobs:
   build-and-deploy:
@@ -23,11 +21,10 @@ jobs:
     - name: Install dependencies
       run: npm ci
       
-    - name: Build application
-      run: npm run build
-      
-    - name: Export static files
-      run: npm run export
+    - name: Build and export
+      run: |
+        npm run build
+        touch out/.nojekyll
       
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
