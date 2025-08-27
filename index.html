@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StreamFlix - Your Ultimate Streaming Platform</title>
+    <meta name="description" content="Watch movies, TV shows, and live streams. Unlimited entertainment at your fingertips.">
+    
+    <!-- Google Fonts - Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(to bottom, transparent, #0f0f0f) #1e1e1e;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Color Variables */
+        :root {
+            --primary: #1e1e1e;
+            --secondary: #ffffff;
+            --accent: #f39c12;
+            --dark: #0f0f0f;
+            --gray-800: #2a2a2a;
+            --gray-700: #3a3a3a;
+            --gray-600: #4a4a4a;
+            --gray-400: #9ca3af;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--gray-800);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo-icon {
+            background: var(--accent);
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .nav {
+            display: none;
+            gap: 2rem;
+        }
+        
+        .nav a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav a:hover {
+            color: var(--accent);
+        }
+        
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: rgba(243, 156, 18, 0.8);
+        }
+        
+        .icon-btn {
+            background: none;
+            border: none;
+            color: var(--secondary);
+            padding: 0.5rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .icon-btn:hover {
+            color: var(--accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                45deg,
+                var(--primary) 0%,
+                var(--gray-800) 50%,
+                var(--primary) 100%
+            );
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to right,
+                rgba(30, 30, 30, 0.9) 0%,
+                rgba(30, 30, 30, 0.6) 50%,
+                transparent 100%
+            );
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 48rem;
+            text-align: left;
+        }
+        
+        .hero-badge {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--gray-400);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 32rem;
+        }
+        
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--secondary);
+            color: var(--primary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.05);
+        }
+        
+        .btn-secondary {
+            background: rgba(74, 74, 74, 0.8);
+            color: var(--secondary);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            backdrop-filter: blur(4px);
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(74, 74, 74, 0.6);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 3rem 0;
+        }
+        
+        .section-alt {
+            background: rgba(42, 42, 42, 0.3);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .view-all {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        
+        .view-all:hover {
+            opacity: 0.8;
+        }
+        
+        /* Content Grid */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .content-card {
+            background: var(--gray-800);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .content-card:hover {
+            transform: scale(1.05);
+            z-index: 10;
+        }
+        
+        .card-image {
+            aspect-ratio: 2/3;
+            background: linear-gradient(135deg, var(--gray-700), var(--gray-600));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+            font-weight: 500;
+        }
+        
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(30, 30, 30, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .content-card:hover .card-overlay {
+            opacity: 1;
+        }
+        
+        .play-icon {
+            background: rgba(243, 156, 18, 0.9);
+            padding: 0.75rem;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .card-info {
+            padding: 1rem;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.125rem;
+        }
+        
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+        
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: var(--accent);
+        }
+        
+        /* Live Streams */
+        .live-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .live-card {
+            background: var(--gray-800);
+            border-radius: 0.5rem;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .live-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .live-thumbnail {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--gray-700), var(--gray-600));
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray-400);
+        }
+        
+        .live-badge {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: #dc2626;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .live-dot {
+            width: 0.5rem;
+            height: 0.5rem;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .viewers {
+            position: absolute;
+            bottom: 0.75rem;
+            right: 0.75rem;
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(4px);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            border-top: 1px solid var(--gray-800);
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--gray-400);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid var(--gray-800);
+            padding-top: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .footer-bottom p {
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav {
+                display: flex;
+            }
+            
+            .content-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .content-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+            
+            .live-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <a href="#" class="logo">
+                    <div class="logo-icon">▶</div>
+                    <span>StreamFlix</span>
+                </a>
+                
+                <!-- Desktop Navigation -->
+                <nav class="nav">
+                    <a href="#">Home</a>
+                    <a href="#">Movies</a>
+                    <a href="#">TV Shows</a>
+                    <a href="#">Live</a>
+                </nav>
+                
+                <!-- Header Actions -->
+                <div class="header-actions">
+                    <button class="icon-btn">🔍</button>
+                    <button class="icon-btn">👤</button>
+                    <a href="#" class="btn">Sign In</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Featured</span>
+                <h1 class="hero-title">Guardians of the Galaxy Vol. 3</h1>
+                <p class="hero-description">
+                    Peter Quill, still reeling from the loss of Gamora, must rally his team around him to defend the universe along with protecting one of their own.
+                </p>
+                <div class="hero-actions">
+                    <a href="#" class="btn-primary">
+                        ▶ Play Now
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        + My List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Content -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Movies & TV Shows</h2>
+                <a href="#" class="view-all">View All</a>
+            </div>
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-image">
+                        The Dark Knight
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">The Dark Knight</h3>
+                        <div class="card-meta">
+                            <span>Movie</span>
+                            <div class="rating">
+                                ⭐ <span>9.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-image">
+                        Breaking Bad
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Breaking Bad</h3>
+                        <div class="card-meta">
+                            <span>TV</span>
+                            <div class="rating">
+                                ⭐ <span>9.5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-image">
+                        Inception
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Inception</h3>
+                        <div class="card-meta">
+                            <span>Movie</span>
+                            <div class="rating">
+                                ⭐ <span>8.8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-image">
+                        The Mandalorian
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">The Mandalorian</h3>
+                        <div class="card-meta">
+                            <span>TV</span>
+                            <div class="rating">
+                                ⭐ <span>8.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-image">
+                        Dune
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Dune</h3>
+                        <div class="card-meta">
+                            <span>Movie</span>
+                            <div class="rating">
+                                ⭐ <span>8.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <div class="card-image">
+                        Stranger Things
+                        <div class="card-overlay">
+                            <div class="play-icon">▶</div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Stranger Things</h3>
+                        <div class="card-meta">
+                            <span>TV</span>
+                            <div class="rating">
+                                ⭐ <span>8.7</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Streams -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-title">
+                <h2>Live Streams</h2>
+                <a href="#" class="view-all">View All Live</a>
+            </div>
+            <div class="live-grid">
+                <div class="live-card">
+                    <div class="live-thumbnail">
+                        Marvel Marathon
+                        <div class="live-badge">
+                            <div class="live-dot"></div>
+                            LIVE
+                        </div>
+                        <div class="viewers">
+                            👥 15.4K
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Marvel Movie Marathon</h3>
+                        <div class="card-meta">
+                            <span>MovieNight_Official</span>
+                            <span>Movies</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="live-card">
+                    <div class="live-thumbnail">
+                        Breaking Bad Finale
+                        <div class="live-badge">
+                            <div class="live-dot"></div>
+                            LIVE
+                        </div>
+                        <div class="viewers">
+                            👥 8.7K
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Breaking Bad Series Finale</h3>
+                        <div class="card-meta">
+                            <span>TVShowCentral</span>
+                            <span>TV Shows</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="live-card">
+                    <div class="live-thumbnail">
+                        Horror Night
+                        <div class="live-badge">
+                            <div class="live-dot"></div>
+                            LIVE
+                        </div>
+                        <div class="viewers">
+                            👥 3.2K
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Classic Horror Movie Night</h3>
+                        <div class="card-meta">
+                            <span>HorrorFanatic</span>
+                            <span>Horror</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="live-card">
+                    <div class="live-thumbnail">
+                        Anime Discussion
+                        <div class="live-badge">
+                            <div class="live-dot"></div>
+                            LIVE
+                        </div>
+                        <div class="viewers">
+                            👥 12.5K
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">Anime Movie Discussion</h3>
+                        <div class="card-meta">
+                            <span>AnimeReviews_Pro</span>
+                            <span>Anime</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <a href="#" class="logo" style="margin-bottom: 1rem; display: flex;">
+                        <div class="logo-icon">▶</div>
+                        <span>StreamFlix</span>
+                    </a>
+                    <p style="color: var(--gray-400); font-size: 0.875rem; line-height: 1.6;">
+                        Your ultimate streaming destination for movies, TV shows, and live content. 
+                        Unlimited entertainment at your fingertips.
+                    </p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Browse</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Movies</a></li>
+                        <li><a href="#">TV Shows</a></li>
+                        <li><a href="#">Live Streams</a></li>
+                        <li><a href="#">New Releases</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Account</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">My Profile</a></li>
+                        <li><a href="#">My Watchlist</a></li>
+                        <li><a href="#">Subscription</a></li>
+                        <li><a href="#">Settings</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 StreamFlix. All rights reserved.</p>
+                <div style="display: flex; gap: 1.5rem;">
+                    <a href="#" style="color: var(--gray-400); text-decoration: none; font-size: 0.875rem;">Terms</a>
+                    <a href="#" style="color: var(--gray-400); text-decoration: none; font-size: 0.875rem;">Privacy</a>
+                    <a href="#" style="color: var(--gray-400); text-decoration: none; font-size: 0.875rem;">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
