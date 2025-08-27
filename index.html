@@ -108,6 +108,302 @@
             display: block;
         }
         
+        /* Sign-In Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        
+        .modal-overlay.active {
+            display: flex;
+        }
+        
+        .signin-modal {
+            background: var(--primary);
+            border: 1px solid var(--gray-800);
+            border-radius: 1rem;
+            padding: 2rem;
+            max-width: 400px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+        
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: all 0.2s;
+        }
+        
+        .modal-close:hover {
+            color: var(--secondary);
+            background: var(--gray-800);
+        }
+        
+        .signin-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .signin-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-decoration: none;
+        }
+        
+        .signin-logo-icon {
+            background: var(--accent);
+            color: var(--primary);
+            width: 3rem;
+            height: 3rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        
+        .signin-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .signin-subtitle {
+            color: var(--gray-400);
+            font-size: 1rem;
+        }
+        
+        .signin-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            position: relative;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-600);
+            border-radius: 0.5rem;
+            color: var(--secondary);
+            font-size: 1rem;
+            transition: all 0.2s;
+        }
+        
+        .form-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(243, 156, 18, 0.1);
+        }
+        
+        .form-input.error {
+            border-color: #ef4444;
+        }
+        
+        .form-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray-400);
+            font-size: 1.125rem;
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray-400);
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 0.25rem;
+            transition: color 0.2s;
+        }
+        
+        .password-toggle:hover {
+            color: var(--gray-300);
+        }
+        
+        .form-error {
+            color: #ef4444;
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+        
+        .form-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-group input {
+            width: 1rem;
+            height: 1rem;
+            accent-color: var(--accent);
+        }
+        
+        .checkbox-group label {
+            color: var(--gray-300);
+            font-size: 0.875rem;
+            cursor: pointer;
+        }
+        
+        .forgot-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .forgot-link:hover {
+            color: rgba(243, 156, 18, 0.8);
+        }
+        
+        .signin-btn {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 0.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 1.5rem;
+        }
+        
+        .signin-btn:hover {
+            background: rgba(243, 156, 18, 0.9);
+            transform: translateY(-1px);
+        }
+        
+        .signin-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .social-divider {
+            position: relative;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .social-divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gray-600);
+        }
+        
+        .social-divider span {
+            background: var(--primary);
+            color: var(--gray-400);
+            padding: 0 1rem;
+            font-size: 0.875rem;
+        }
+        
+        .social-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background: var(--gray-800);
+            border: 1px solid var(--gray-600);
+            border-radius: 0.5rem;
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        
+        .social-btn:hover {
+            background: var(--gray-700);
+            transform: translateY(-1px);
+        }
+        
+        .signup-link {
+            text-align: center;
+            color: var(--gray-400);
+            font-size: 0.875rem;
+        }
+        
+        .signup-link a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        
+        .signup-link a:hover {
+            color: rgba(243, 156, 18, 0.8);
+        }
+        
         .header-actions {
             display: flex;
             align-items: center;
@@ -529,7 +825,7 @@
                 <div class="header-actions">
                     <button class="icon-btn">🔍</button>
                     <button class="icon-btn">👤</button>
-                    <a href="#" class="btn">Sign In</a>
+                    <button class="btn" onclick="openSigninModal()">Sign In</button>
                 </div>
             </div>
         </div>
@@ -983,6 +1279,90 @@
         <!-- End Live Page -->
     </main>
 
+    <!-- Sign-In Modal -->
+    <div id="signinModal" class="modal-overlay">
+        <div class="signin-modal">
+            <button class="modal-close" onclick="closeSigninModal()">&times;</button>
+            
+            <!-- Header -->
+            <div class="signin-header">
+                <a href="#" class="signin-logo">
+                    <div class="signin-logo-icon">▶</div>
+                    <span style="font-size: 1.5rem; font-weight: bold; color: var(--secondary);">StreamDZD</span>
+                </a>
+                <h2 class="signin-title">Welcome back</h2>
+                <p class="signin-subtitle">Sign in to continue watching</p>
+            </div>
+            
+            <!-- Sign-In Form -->
+            <form class="signin-form" onsubmit="handleSignin(event)">
+                <!-- Email Input -->
+                <div class="form-group">
+                    <div class="form-icon">📧</div>
+                    <input 
+                        type="email" 
+                        class="form-input" 
+                        id="signinEmail" 
+                        placeholder="Email address" 
+                        required
+                    />
+                    <div class="form-error" id="emailError"></div>
+                </div>
+                
+                <!-- Password Input -->
+                <div class="form-group">
+                    <div class="form-icon">🔒</div>
+                    <input 
+                        type="password" 
+                        class="form-input" 
+                        id="signinPassword" 
+                        placeholder="Password" 
+                        required
+                    />
+                    <button type="button" class="password-toggle" onclick="togglePassword()">
+                        <span id="passwordToggleIcon">👁️</span>
+                    </button>
+                    <div class="form-error" id="passwordError"></div>
+                </div>
+                
+                <!-- Form Options -->
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="rememberMe" />
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                
+                <!-- Submit Button -->
+                <button type="submit" class="signin-btn" id="signinBtn">
+                    Sign in
+                </button>
+                
+                <!-- Social Login -->
+                <div class="social-divider">
+                    <span>Or continue with</span>
+                </div>
+                
+                <div class="social-buttons">
+                    <button type="button" class="social-btn" onclick="handleSocialLogin('Google')">
+                        <span style="color: #ea4335;">🌐</span>
+                        Google
+                    </button>
+                    <button type="button" class="social-btn" onclick="handleSocialLogin('Facebook')">
+                        <span style="color: #1877f2;">🟦</span>
+                        Facebook
+                    </button>
+                </div>
+                
+                <!-- Sign-up Link -->
+                <div class="signup-link">
+                    Don't have an account? <a href="#" onclick="showSignupModal()">Sign up for free</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1062,6 +1442,104 @@
             }
         }
         
+        // Sign-In Modal Functions
+        function openSigninModal() {
+            const modal = document.getElementById('signinModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSigninModal() {
+            const modal = document.getElementById('signinModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            clearErrors();
+        }
+        
+        function togglePassword() {
+            const passwordInput = document.getElementById('signinPassword');
+            const toggleIcon = document.getElementById('passwordToggleIcon');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.textContent = '🙈';
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.textContent = '👁️';
+            }
+        }
+        
+        function clearErrors() {
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+            document.getElementById('signinEmail').classList.remove('error');
+            document.getElementById('signinPassword').classList.remove('error');
+        }
+        
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function handleSignin(event) {
+            event.preventDefault();
+            clearErrors();
+            
+            const email = document.getElementById('signinEmail').value.trim();
+            const password = document.getElementById('signinPassword').value;
+            let isValid = true;
+            
+            // Email validation
+            if (!email) {
+                document.getElementById('emailError').textContent = 'Email is required';
+                document.getElementById('signinEmail').classList.add('error');
+                isValid = false;
+            } else if (!validateEmail(email)) {
+                document.getElementById('emailError').textContent = 'Please enter a valid email';
+                document.getElementById('signinEmail').classList.add('error');
+                isValid = false;
+            }
+            
+            // Password validation
+            if (!password) {
+                document.getElementById('passwordError').textContent = 'Password is required';
+                document.getElementById('signinPassword').classList.add('error');
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+                document.getElementById('signinPassword').classList.add('error');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simulate sign-in process
+                const signinBtn = document.getElementById('signinBtn');
+                signinBtn.textContent = 'Signing in...';
+                signinBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert(`Welcome back! Signed in as ${email}`);
+                    closeSigninModal();
+                    signinBtn.textContent = 'Sign in';
+                    signinBtn.disabled = false;
+                    
+                    // Clear form
+                    document.getElementById('signinEmail').value = '';
+                    document.getElementById('signinPassword').value = '';
+                    document.getElementById('rememberMe').checked = false;
+                }, 2000);
+            }
+        }
+        
+        function handleSocialLogin(provider) {
+            alert(`Sign in with ${provider} - Feature coming soon!`);
+        }
+        
+        function showSignupModal() {
+            closeSigninModal();
+            alert('Sign up modal - Feature coming soon!');
+        }
+        
         // Initialize navigation
         document.addEventListener('DOMContentLoaded', function() {
             // Add click handlers to navigation links
@@ -1082,6 +1560,28 @@
             
             // Show home section by default
             showSection('home');
+            
+            // Close modal when clicking outside
+            document.getElementById('signinModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeSigninModal();
+                }
+            });
+            
+            // Clear errors on input
+            document.getElementById('signinEmail').addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    this.classList.remove('error');
+                    document.getElementById('emailError').textContent = '';
+                }
+            });
+            
+            document.getElementById('signinPassword').addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    this.classList.remove('error');
+                    document.getElementById('passwordError').textContent = '';
+                }
+            });
         });
     </script>
 </body>
