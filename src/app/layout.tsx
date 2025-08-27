@@ -10,7 +10,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'StreamFlix - Your Ultimate Streaming Platform',
+  title: 'StreamDZD - Your Ultimate Streaming Platform',
   description: 'Watch movies, TV shows, and live streams. Unlimited entertainment at your fingertips.',
 }
 

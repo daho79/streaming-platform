@@ -1,6 +1,6 @@
-# 🚀 Deploy StreamFlix to GitHub
+# 🚀 Deploy StreamDZD to GitHub
 
-Follow these steps to deploy your StreamFlix platform to GitHub and GitHub Pages.
+Follow these steps to deploy your StreamDZD platform to GitHub and GitHub Pages.
 
 ## 📋 Prerequisites
 
@@ -23,7 +23,7 @@ git init
 git add .
 
 # Create initial commit
-git commit -m "Initial commit: StreamFlix streaming platform"
+git commit -m "Initial commit: StreamDZD streaming platform"
 ```
 
 ## 🌐 Step 2: Create GitHub Repository
@@ -164,7 +164,7 @@ npm run lint
 
 ## 🎉 Success!
 
-Once deployed, your StreamFlix platform will be live at:
+Once deployed, your StreamDZD platform will be live at:
 **`https://YOUR_USERNAME.github.io/streaming-platform/`**
 
 The deployment includes:

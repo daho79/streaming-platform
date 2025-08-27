@@ -1,4 +1,4 @@
-# StreamFlix - Modern Streaming Platform
+# StreamDZD - Modern Streaming Platform
 
 A modern and user-friendly streaming website where users can watch movies, TV shows, and live streams. Built with Next.js, TypeScript, and Tailwind CSS.
 
@@ -289,10 +289,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For support and questions:
-- 📧 Email: support@streamflix.com
+- 📧 Email: support@streamdzd.com
 - 🐛 Issues: [GitHub Issues](https://github.com/your-repo/issues)
 - 📖 Documentation: [Project Wiki](https://github.com/your-repo/wiki)
 
 ---
 
-**StreamFlix** - Your ultimate streaming destination 🎬✨
+**StreamDZD** - Your ultimate streaming destination 🎬✨

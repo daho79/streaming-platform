@@ -1,8 +1,8 @@
 #!/bin/bash
-# StreamFlix GitHub Deployment Script
+# StreamDZD GitHub Deployment Script
 # Replace YOUR_USERNAME with your actual GitHub username
 
-echo "🚀 StreamFlix GitHub Deployment Helper"
+echo "🚀 StreamDZD GitHub Deployment Helper"
 echo "======================================"
 echo ""
 

@@ -68,7 +68,7 @@ const LoginPage: React.FC = () => {
             <div className="bg-accent p-3 rounded-lg">
               <Play className="w-8 h-8 text-primary" />
             </div>
-            <span className="text-3xl font-bold text-secondary">StreamFlix</span>
+            <span className="text-3xl font-bold text-secondary">StreamDZD</span>
           </Link>
           
           <h2 className="text-3xl font-bold text-secondary">

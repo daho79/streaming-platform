@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
               <div className="bg-accent p-2 rounded-lg">
                 <Play className="w-6 h-6 text-primary" />
               </div>
-              <span className="text-2xl font-bold text-secondary">StreamFlix</span>
+              <span className="text-2xl font-bold text-secondary">StreamDZD</span>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed">
               Your ultimate streaming destination for movies, TV shows, and live content. 
@@ -120,7 +120,7 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 StreamFlix. All rights reserved.
+            © 2024 StreamDZD. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/terms" className="text-gray-400 hover:text-secondary text-sm transition-colors">

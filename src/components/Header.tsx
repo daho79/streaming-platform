@@ -20,7 +20,7 @@ const Header: React.FC = () => {
             <div className="bg-accent p-2 rounded-lg">
               <Play className="w-6 h-6 text-primary" />
             </div>
-            <span className="text-2xl font-bold text-secondary">StreamFlix</span>
+            <span className="text-2xl font-bold text-secondary">StreamDZD</span>
           </Link>
 
           {/* Desktop Navigation */}
