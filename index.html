@@ -94,6 +94,20 @@
             color: var(--accent);
         }
         
+        .nav a.active {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        /* Page Sections */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+        
         .header-actions {
             display: flex;
             align-items: center;
@@ -505,10 +519,10 @@
                 
                 <!-- Desktop Navigation -->
                 <nav class="nav">
-                    <a href="#">Home</a>
-                    <a href="#">Movies</a>
-                    <a href="#">TV Shows</a>
-                    <a href="#">Live</a>
+                    <a href="#" class="nav-link active" data-target="home">Home</a>
+                    <a href="#" class="nav-link" data-target="movies">Movies</a>
+                    <a href="#" class="nav-link" data-target="tv-shows">TV Shows</a>
+                    <a href="#" class="nav-link" data-target="live">Live</a>
                 </nav>
                 
                 <!-- Header Actions -->
@@ -521,8 +535,12 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Main Content -->
+    <main>
+        <!-- Home Page -->
+        <div id="homeSection" class="page-section">
+            <!-- Hero Section -->
+            <section class="hero">
         <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="container">
@@ -753,6 +771,217 @@
             </div>
         </div>
     </section>
+    
+        </div>
+        <!-- End Home Page -->
+        
+        <!-- Movies Page -->
+        <div id="moviesSection" class="page-section">
+            <div class="container" style="padding-top: 2rem;">
+                <h1 style="font-size: 2.5rem; font-weight: bold; color: var(--secondary); margin-bottom: 2rem;">Movies</h1>
+                <p style="color: var(--gray-400); font-size: 1.125rem; margin-bottom: 3rem;">Discover amazing movies from around the world</p>
+                
+                <!-- Search Bar -->
+                <div style="margin-bottom: 2rem;">
+                    <input type="text" placeholder="Search movies..." style="width: 100%; max-width: 500px; padding: 0.75rem 1rem; background: var(--gray-800); border: 1px solid var(--gray-600); border-radius: 0.5rem; color: var(--secondary);" />
+                </div>
+                
+                <!-- Movies Grid -->
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-image">Avatar: The Way of Water<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Avatar: The Way of Water</h3>
+                            <div class="card-meta"><span>2022</span><div class="rating">⭐ <span>8.1</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">Top Gun: Maverick<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Top Gun: Maverick</h3>
+                            <div class="card-meta"><span>2022</span><div class="rating">⭐ <span>8.3</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">Black Panther: Wakanda Forever<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Black Panther: Wakanda Forever</h3>
+                            <div class="card-meta"><span>2022</span><div class="rating">⭐ <span>7.3</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">Spider-Man: No Way Home<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Spider-Man: No Way Home</h3>
+                            <div class="card-meta"><span>2021</span><div class="rating">⭐ <span>8.4</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">The Batman<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">The Batman</h3>
+                            <div class="card-meta"><span>2022</span><div class="rating">⭐ <span>7.8</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">Dune<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Dune</h3>
+                            <div class="card-meta"><span>2021</span><div class="rating">⭐ <span>8.0</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Movies Page -->
+        
+        <!-- TV Shows Page -->
+        <div id="tv-showsSection" class="page-section">
+            <div class="container" style="padding-top: 2rem;">
+                <h1 style="font-size: 2.5rem; font-weight: bold; color: var(--secondary); margin-bottom: 2rem;">TV Shows</h1>
+                <p style="color: var(--gray-400); font-size: 1.125rem; margin-bottom: 3rem;">Binge-watch the best TV series and shows</p>
+                
+                <!-- Search Bar -->
+                <div style="margin-bottom: 2rem;">
+                    <input type="text" placeholder="Search TV shows..." style="width: 100%; max-width: 500px; padding: 0.75rem 1rem; background: var(--gray-800); border: 1px solid var(--gray-600); border-radius: 0.5rem; color: var(--secondary);" />
+                </div>
+                
+                <!-- TV Shows Grid -->
+                <div class="content-grid">
+                    <div class="content-card">
+                        <div class="card-image">Stranger Things<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Stranger Things</h3>
+                            <div class="card-meta"><span>4 Seasons</span><div class="rating">⭐ <span>8.7</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">The Mandalorian<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">The Mandalorian</h3>
+                            <div class="card-meta"><span>3 Seasons</span><div class="rating">⭐ <span>8.8</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">House of the Dragon<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">House of the Dragon</h3>
+                            <div class="card-meta"><span>2 Seasons</span><div class="rating">⭐ <span>8.5</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">Breaking Bad<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Breaking Bad</h3>
+                            <div class="card-meta"><span>5 Seasons</span><div class="rating">⭐ <span>9.5</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">The Last of Us<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">The Last of Us</h3>
+                            <div class="card-meta"><span>1 Season</span><div class="rating">⭐ <span>8.9</span></div></div>
+                        </div>
+                    </div>
+                    <div class="content-card">
+                        <div class="card-image">Wednesday<div class="card-overlay"><div class="play-icon">▶</div></div></div>
+                        <div class="card-info">
+                            <h3 class="card-title">Wednesday</h3>
+                            <div class="card-meta"><span>1 Season</span><div class="rating">⭐ <span>8.1</span></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End TV Shows Page -->
+        
+        <!-- Live Page -->
+        <div id="liveSection" class="page-section">
+            <div class="container" style="padding-top: 2rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                    <div style="width: 12px; height: 12px; background: #ef4444; border-radius: 50%; animation: pulse 2s infinite;"></div>
+                    <h1 style="font-size: 2.5rem; font-weight: bold; color: var(--secondary);">Live Streams</h1>
+                </div>
+                <p style="color: var(--gray-400); font-size: 1.125rem; margin-bottom: 3rem;">Watch live content with community - 50K+ viewers online</p>
+                
+                <!-- Search Bar -->
+                <div style="margin-bottom: 2rem;">
+                    <input type="text" placeholder="Search live streams..." style="width: 100%; max-width: 500px; padding: 0.75rem 1rem; background: var(--gray-800); border: 1px solid var(--gray-600); border-radius: 0.5rem; color: var(--secondary);" />
+                </div>
+                
+                <!-- Live Streams Grid -->
+                <div class="live-grid">
+                    <div class="live-card">
+                        <div class="live-thumbnail">
+                            Marvel Marathon
+                            <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+                            <div class="viewers">👥 15.4K</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">Marvel Movie Marathon</h3>
+                            <div class="card-meta"><span>MovieNight_Official</span><span>Movies</span></div>
+                        </div>
+                    </div>
+                    <div class="live-card">
+                        <div class="live-thumbnail">
+                            Breaking Bad Finale
+                            <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+                            <div class="viewers">👥 8.7K</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">Breaking Bad Series Finale</h3>
+                            <div class="card-meta"><span>TVShowCentral</span><span>TV Shows</span></div>
+                        </div>
+                    </div>
+                    <div class="live-card">
+                        <div class="live-thumbnail">
+                            Horror Night
+                            <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+                            <div class="viewers">👥 3.2K</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">Classic Horror Movie Night</h3>
+                            <div class="card-meta"><span>HorrorFanatic</span><span>Horror</span></div>
+                        </div>
+                    </div>
+                    <div class="live-card">
+                        <div class="live-thumbnail">
+                            Anime Discussion
+                            <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+                            <div class="viewers">👥 12.5K</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">Anime Movie Discussion</h3>
+                            <div class="card-meta"><span>AnimeReviews_Pro</span><span>Anime</span></div>
+                        </div>
+                    </div>
+                    <div class="live-card">
+                        <div class="live-thumbnail">
+                            Sci-Fi Saturday
+                            <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+                            <div class="viewers">👥 5.6K</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">Sci-Fi Movie Analysis</h3>
+                            <div class="card-meta"><span>SciFi_Cinema</span><span>Sci-Fi</span></div>
+                        </div>
+                    </div>
+                    <div class="live-card">
+                        <div class="live-thumbnail">
+                            Comedy Reviews
+                            <div class="live-badge"><div class="live-dot"></div>LIVE</div>
+                            <div class="viewers">👥 2.1K</div>
+                        </div>
+                        <div class="card-info">
+                            <h3 class="card-title">Stand-Up Movie Reviews</h3>
+                            <div class="card-meta"><span>LaughTrackReviews</span><span>Comedy</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Live Page -->
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
@@ -810,5 +1039,50 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        // Simple SPA-like navigation for the standalone HTML version
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => section.style.display = 'none');
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + 'Section');
+            if (targetSection) {
+                targetSection.style.display = 'block';
+            }
+            
+            // Update page title
+            if (sectionName === 'home') {
+                document.title = 'StreamDZD - Your Ultimate Streaming Platform';
+            } else {
+                const capitalize = sectionName.charAt(0).toUpperCase() + sectionName.slice(1);
+                document.title = `${capitalize} - StreamDZD`;
+            }
+        }
+        
+        // Initialize navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers to navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = this.getAttribute('data-target');
+                    if (target) {
+                        showSection(target);
+                        
+                        // Update active states
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Show home section by default
+            showSection('home');
+        });
+    </script>
 </body>
 </html>
